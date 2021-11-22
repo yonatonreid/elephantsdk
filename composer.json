@@ -1,7 +1,7 @@
 {
   "name": "yonatonreid/elephantsdk",
   "description": "description",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "proprietary",
   "authors": [
     {
@@ -9,6 +9,13 @@
       "email": "email@example.com"
     }
   ],
+  "version": "1.0",
   "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Bridge\\": "src",
+      "BridgeTest\\": "test"
+    }
   }
 }
