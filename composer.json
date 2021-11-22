@@ -1,0 +1,14 @@
+{
+  "name": "yonatonreid/elephantsdk",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "yonat",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
