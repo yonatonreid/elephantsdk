@@ -14,8 +14,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Bridge\\": "src",
-      "BridgeTest\\": "test"
+      "Elephant\\": "src",
+      "ElephantTest\\": "test"
     }
   }
 }
