@@ -13,6 +13,10 @@ use function array_fill;
 use function array_fill_keys;
 use function array_filter;
 use function array_flip;
+use function array_key_exists;
+use function array_key_first;
+use function array_key_last;
+use function array_keys;
 use function array_values;
 use function array_walk;
 use function array_walk_recursive;
@@ -153,6 +157,135 @@ class Arrays
     public static function arrayFlip(array $array): array
     {
         return array_flip($array);
+    }
+
+    /**
+     * array_intersect_assoc() returns an array containing all the values of array that are present in all the
+     * arguments. Note that the keys are also used in the comparison unlike in array_intersect().
+     *
+     * @param array $array
+     * @param mixed ...$arrays
+     * @return array
+     */
+    public static function arrayIntersectAssoc(array $array, array ...$arrays): array
+    {
+        return call_user_func_array('array_intersect_assoc', func_get_args());
+    }
+
+    /**
+     * array_intersect_key() returns an array containing all the entries of array which have keys that are present in
+     * all the arguments.
+     *
+     * @param array $array
+     * @param mixed ...$arrays
+     * @return array
+     */
+    public static function arrayIntersectKey(array $array, array ...$arrays): array
+    {
+        return call_user_func_array('array_intersect_key', func_get_args());
+    }
+
+    public static function arrayIntersectUassoc(): array
+    {
+        return call_user_func_array('array_intersect_uassoc', func_get_args());
+    }
+
+    public static function arrayIntersectUkey(): array
+    {
+        return call_user_func_array('array_intersect_ukey', func_get_args());
+    }
+
+    public static function arrayIntersect(array $array, array ...$arrays): array
+    {
+        return call_user_func_array('array_intersect', func_get_args());
+    }
+
+    /**
+     * array_key_exists() returns true if the given key is set in the array. key can be any value possible for an
+     * array index.
+     *
+     * @param string|int $key
+     * @param array $array
+     * @return bool
+     */
+    public static function arrayKeyExists(string|int $key, array $array): bool
+    {
+        return array_key_exists($key, $array);
+    }
+
+    /**
+     * Get the first key of the given array without affecting the internal array pointer.
+     *
+     * @param array $array
+     * @return int|string|null
+     */
+    public static function arrayKeyFirst(array $array): int|string|null
+    {
+        return array_key_first($array);
+    }
+
+    /**
+     * Get the last key of the given array without affecting the internal array pointer.
+     *
+     * @param array $array
+     * @return int|string|null
+     */
+    public static function arrayKeyLast(array $array): int|string|null
+    {
+        return array_key_last($array);
+    }
+
+    /**
+     * array_keys() returns the keys, numeric and string, from the array.
+     *
+     * @param array $array
+     * @param mixed $search_value
+     * @param bool $strict
+     * @return array
+     */
+    public static function arrayKeys(array $array, mixed $search_value, bool $strict = false): array
+    {
+        return array_keys($array, $search_value, $strict);
+    }
+
+    public static function arrayMap(?callable $callback, array $array, array ...$arrays): array
+    {
+        return call_user_func_array('array_map', func_get_args());
+    }
+
+    /**
+     * array_merge_recursive() merges the elements of one or more arrays together so that the values of one are
+     * appended to the end of the previous one. It returns the resulting array
+     * If the input arrays have the same string keys, then the values for these keys are merged together into an array,
+     * and this is done recursively, so that if one of the values is an array itself, the function will merge it with
+     * a corresponding entry in another array too. If, however, the arrays have the same numeric key, the later value
+     * will not overwrite the original value, but will be appended.
+     *
+     * @param mixed ...$arrays
+     * @return array
+     */
+    public static function arrayMergeRecursive(array ...$arrays): array
+    {
+        return call_user_func_array('array_merge_recursive', func_get_args());
+    }
+
+    /**
+     * Merges the elements of one or more arrays together so that the values of one are appended to the end of the
+     * previous one. It returns the resulting array.
+     *
+     * If the input arrays have the same string keys, then the later value for that key will overwrite the previous one.
+     * If, however, the arrays contain numeric keys, the later value will not overwrite the original value, but will be
+     * appended.
+     *
+     * Values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero in the
+     * result array.
+     *
+     * @param mixed ...$arrays
+     * @return array
+     */
+    public static function arrayMerge(array ...$arrays): array
+    {
+        return call_user_func_array('array_merge', func_get_args());
     }
 
     /**
