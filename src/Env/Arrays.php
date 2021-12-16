@@ -43,6 +43,7 @@ use function count;
 use function current;
 use function end;
 use function in_array;
+use function is_null;
 use function key;
 use function key_exists;
 use function krsort;
@@ -536,7 +537,10 @@ final class Arrays
     #[Pure]
     public static function arrayKeys(array $array, mixed $filter_value = null, bool $strict = false): array
     {
-        return array_keys($array, $filter_value, $strict);
+        if(!is_null($filter_value)){
+            return array_keys($array, $filter_value, $strict);
+        }
+        return array_keys($array);
     }
 
     /**
