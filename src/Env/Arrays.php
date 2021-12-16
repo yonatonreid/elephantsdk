@@ -534,7 +534,7 @@ final class Arrays
      * @return int[]|string[] an array of all the keys in input.
      */
     #[Pure]
-    public static function arrayKeys(array $array, mixed $filter_value, bool $strict = false): array
+    public static function arrayKeys(array $array, mixed $filter_value = null, bool $strict = false): array
     {
         return array_keys($array, $filter_value, $strict);
     }
