@@ -537,7 +537,7 @@ final class Arrays
     #[Pure]
     public static function arrayKeys(array $array, mixed $filter_value = null, bool $strict = false): array
     {
-        if(!is_null($filter_value)){
+        if (!is_null($filter_value)) {
             return array_keys($array, $filter_value, $strict);
         }
         return array_keys($array);
